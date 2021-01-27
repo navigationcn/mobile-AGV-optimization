@@ -18,14 +18,14 @@ import os
 import sys
 from mip import Model, ProgressLog, xsum, maximize, minimize, BINARY, CONTINUOUS, Constr, ConstrList
 
-sys.path.insert(1, "functions/")
-from planners import *
-from visualizers import *
-from milp_formulation import *
-from robot import *
-from adg import *
-from adg_node import *
-from process_results import *
+# sys.path.insert(1, "functions/")
+from functions.planners import *
+from functions.visualizers import *
+from functions.milp_formulation import *
+from functions.robot import *
+from functions.adg import *
+from functions.adg_node import *
+from functions.process_results import *
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(format='%(name)s - %(levelname)s :: %(message)s', level=logging.INFO)
@@ -36,21 +36,21 @@ def main():
 
     if len(sys.argv) == 1: # if no additional arguments given
         # Simulation plotting and saving
-        show_visual = True
+        show_visual = False
         show_ADG = False
         run_MILP = True
         save_file = False
         # Simulation parameters
         pwd = os.path.dirname(os.path.abspath(__file__))
-        map_gen_robot_count = 15
-        delayed_robot_cnt = 10
+        map_gen_robot_count = 10
+        delayed_robot_cnt = 2
         map_gen_seedval = 1
-        H_control = 2
-        delay_amount = 10
+        H_control = 4
+        delay_amount = 5
         thread_number = 1
         solver = "CBC" # or "GRB" for Gurobi
         sim_timeout = 500
-        w = 1.9     # sub-optimality bound: w = 1.0 -> CBS, else ECBS!
+        w = 4.0     # sub-optimality bound: w = 1.0 -> CBS, else ECBS!
         fldr = "nuernberg1" # + str(thread_number)
         save_file_location = "general"
         cost_func_name = "cumulative"
@@ -126,7 +126,7 @@ def main():
 
     # initialize optimization MIP object m_opt
     # solver = 'CBC' # or 'CBC' for coin-or branch-and-cut solver
-    m_opt = Model('MILP_sequence', solver='CBC')
+    m_opt = Model() # 'MILP_sequence', solver='CBC')
     pl_opt = ProgressLog()
 
     k = 0
@@ -139,7 +139,7 @@ def main():
         # show current robot status
         logger.info("-------------------- @ time step k = {} --------------------".format(k))
         for robot in robots:
-            node_info = ADG.node[robot.current_node]["data"]
+            node_info = ADG.nodes[robot.current_node]["data"]
             logger.debug("   - Robot {} # {} @ {} => status: {}".format(robot.robot_ID, node_info.ID, node_info.s_loc, robot.status))
 
         # solve MILP for the advanced ADG to potentially adjust ordering
@@ -175,17 +175,17 @@ def main():
         # Advance robots if possible (dependencies have been met)
         for robot in robots:
             # check if all dependencies have been met, to advance to next node
-            node_info = ADG.node[robot.current_node]["data"]
+            node_info = ADG.nodes[robot.current_node]["data"]
             node_dependencies_list = list(ADG_reverse.neighbors(robot.current_node))
             all_dependencies_completed = True
             for dependency in node_dependencies_list:
-                if (ADG.node[dependency]["data"].status != Status.FINISHED):
+                if (ADG.nodes[dependency]["data"].status != Status.FINISHED):
                     all_dependencies_completed = False
 
             # if all dependencies are completed, the robot can advance!
             if all_dependencies_completed and k > 0: # (robot.robot_ID == 2 or k > 5)
                 if (not (robot.robot_ID in robot_IDs_to_delay)): # or (k < 10 or k > 20)): # or (robot.robot_ID == 3 or k > 8):
-                    ADG.node[robot.current_node]["data"].status = Status.FINISHED
+                    ADG.nodes[robot.current_node]["data"].status = Status.FINISHED
                     robot.advance()
 
             if not robot.is_done():
@@ -194,7 +194,7 @@ def main():
                 robots_done[robot.robot_ID] = True
 
         if show_visual:
-            visualizer.redraw(robots, pause_length=0.1)
+            visualizer.redraw(robots, pause_length=0.001)
             # return 0
 
         k += 1
@@ -205,14 +205,15 @@ def main():
     for idx, t in time_to_goal.items():
         total_time += t
 
-    if save_file:
-        logger.info("Total time to complete missions: {}".format(total_time))
-        logger.info("horizon = {}".format(H_control))
-        logger.info("")
-        logger.info("Computation time:")
-        logger.info(" - max: {}".format(max(solve_time)))
-        logger.info(" - avg: {}".format(stat.mean(solve_time)))
+    
+    logger.info("Total time to complete missions: {}".format(total_time))
+    logger.info("horizon = {}".format(H_control))
+    logger.info("")
+    logger.info("Computation time:")
+    logger.info(" - max: {}".format(max(solve_time)))
+    logger.info(" - avg: {}".format(stat.mean(solve_time)))
 
+    if save_file:
         # create data to save to YAML file
         simulation_results = {}
         simulation_results["parameters"] = {}

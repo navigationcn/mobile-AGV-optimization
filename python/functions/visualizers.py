@@ -16,6 +16,14 @@ import logging
 logger = logging.getLogger(__name__)
 
 class Visualizer(object):
+    def __init__(self, map_file, robots):
+        self.map_file = map_file
+        self.robots = robots
+        self._read_map_file()
+        self.fig = plt.figure()
+        self.redraw(robots)
+
+
     def _read_map_file(self):
         with open(self.map_file) as stream:
             try:
@@ -35,6 +43,7 @@ class Visualizer(object):
         map_array = np.pad(map_array,(1,1),mode="constant",constant_values=1.0)
 
         self.map_array = map_array
+
 
     def redraw(self, robots, pause_length=1.0, show_traj=False, writer=None):
         plt.clf()
@@ -84,12 +93,7 @@ class Visualizer(object):
             plt.clf()
             plt.imshow(self.map_array, cmap="pink")
 
-    def __init__(self, map_file, robots):
-        self.map_file = map_file
-        self.robots = robots
-        self._read_map_file()
-        self.fig = plt.figure()
-        self.redraw(robots)
+    
 
 
 

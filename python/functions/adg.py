@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 import logging
 import time
 
-from adg_node import *
-from adg_dependency_group import *
+from functions.adg_node import *
+from functions.adg_dependency_group import *
 
 logger = logging.getLogger(__name__)
 
@@ -122,7 +122,7 @@ def determine_ADG(plans, show_graph=False, show_logging=False):
 		this_node_ID = "p_" + str(this_robot_ID) + "_" + str(this_node_idx)
 		this_neighbor_list = list(ADG.neighbors(this_node_ID))
 		while len(this_neighbor_list) > 0: # while list not empty
-			this_node = ADG.node[this_node_ID]["data"]
+			this_node = ADG.nodes[this_node_ID]["data"]
 			for other_robot_ID in robot_ID_list:
 				if other_robot_ID != this_robot_ID:
 					other_node_idx = 0
@@ -130,7 +130,7 @@ def determine_ADG(plans, show_graph=False, show_logging=False):
 					other_neighbor_list = list(ADG.neighbors(other_node_ID))
 
 					while len(other_neighbor_list) > 0:
-						other_node = ADG.node[other_node_ID]["data"]
+						other_node = ADG.nodes[other_node_ID]["data"]
 						if (this_node.s_loc == other_node.g_loc) and (this_node.time <= other_node.time):
 							ADG.add_edge(this_node_ID, other_node_ID, type=2)
 						other_node_idx += 1
