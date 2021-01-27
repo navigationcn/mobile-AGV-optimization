@@ -1,0 +1,351 @@
+robots:
+- goal:
+  - 30
+  - 50
+  name: boi0
+  start:
+  - 24
+  - 20
+- goal:
+  - 0
+  - 50
+  name: boi1
+  start:
+  - 29
+  - 7
+- goal:
+  - 16
+  - 29
+  name: boi2
+  start:
+  - 15
+  - 28
+- goal:
+  - 13
+  - 1
+  name: boi3
+  start:
+  - 37
+  - 2
+- goal:
+  - 20
+  - 51
+  name: boi4
+  start:
+  - 9
+  - 45
+- goal:
+  - 24
+  - 28
+  name: boi5
+  start:
+  - 16
+  - 29
+- goal:
+  - 30
+  - 38
+  name: boi6
+  start:
+  - 0
+  - 47
+- goal:
+  - 4
+  - 5
+  name: boi7
+  start:
+  - 11
+  - 9
+- goal:
+  - 26
+  - 51
+  name: boi8
+  start:
+  - 15
+  - 18
+- goal:
+  - 12
+  - 40
+  name: boi9
+  start:
+  - 4
+  - 2
+- goal:
+  - 9
+  - 45
+  name: boi10
+  start:
+  - 20
+  - 51
+- goal:
+  - 20
+  - 56
+  name: boi11
+  start:
+  - 18
+  - 38
+- goal:
+  - 33
+  - 7
+  name: boi12
+  start:
+  - 11
+  - 59
+- goal:
+  - 7
+  - 46
+  name: boi13
+  start:
+  - 33
+  - 39
+- goal:
+  - 4
+  - 2
+  name: boi14
+  start:
+  - 26
+  - 7
+- goal:
+  - 22
+  - 29
+  name: boi15
+  start:
+  - 21
+  - 17
+- goal:
+  - 12
+  - 48
+  name: boi16
+  start:
+  - 16
+  - 17
+- goal:
+  - 15
+  - 18
+  name: boi17
+  start:
+  - 21
+  - 38
+- goal:
+  - 21
+  - 38
+  name: boi18
+  start:
+  - 36
+  - 9
+- goal:
+  - 33
+  - 39
+  name: boi19
+  start:
+  - 20
+  - 56
+- goal:
+  - 16
+  - 6
+  name: boi20
+  start:
+  - 12
+  - 48
+- goal:
+  - 30
+  - 41
+  name: boi21
+  start:
+  - 34
+  - 1
+- goal:
+  - 15
+  - 25
+  name: boi22
+  start:
+  - 5
+  - 1
+- goal:
+  - 0
+  - 42
+  name: boi23
+  start:
+  - 16
+  - 6
+- goal:
+  - 19
+  - 1
+  name: boi24
+  start:
+  - 2
+  - 51
+- goal:
+  - 15
+  - 21
+  name: boi25
+  start:
+  - 24
+  - 18
+- goal:
+  - 11
+  - 9
+  name: boi26
+  start:
+  - 5
+  - 47
+- goal:
+  - 11
+  - 59
+  name: boi27
+  start:
+  - 32
+  - 46
+- goal:
+  - 20
+  - 49
+  name: boi28
+  start:
+  - 19
+  - 48
+- goal:
+  - 21
+  - 17
+  name: boi29
+  start:
+  - 4
+  - 8
+- goal:
+  - 37
+  - 5
+  name: boi30
+  start:
+  - 26
+  - 51
+- goal:
+  - 26
+  - 7
+  name: boi31
+  start:
+  - 15
+  - 40
+- goal:
+  - 15
+  - 38
+  name: boi32
+  start:
+  - 20
+  - 59
+- goal:
+  - 25
+  - 44
+  name: boi33
+  start:
+  - 24
+  - 23
+- goal:
+  - 12
+  - 38
+  name: boi34
+  start:
+  - 34
+  - 4
+- goal:
+  - 0
+  - 47
+  name: boi35
+  start:
+  - 1
+  - 38
+- goal:
+  - 29
+  - 7
+  name: boi36
+  start:
+  - 11
+  - 1
+- goal:
+  - 11
+  - 49
+  name: boi37
+  start:
+  - 19
+  - 17
+- goal:
+  - 23
+  - 38
+  name: boi38
+  start:
+  - 33
+  - 45
+- goal:
+  - 37
+  - 2
+  name: boi39
+  start:
+  - 7
+  - 38
+- goal:
+  - 11
+  - 56
+  name: boi40
+  start:
+  - 22
+  - 44
+- goal:
+  - 0
+  - 45
+  name: boi41
+  start:
+  - 29
+  - 52
+- goal:
+  - 25
+  - 46
+  name: boi42
+  start:
+  - 23
+  - 17
+- goal:
+  - 16
+  - 17
+  name: boi43
+  start:
+  - 27
+  - 38
+- goal:
+  - 24
+  - 23
+  name: boi44
+  start:
+  - 13
+  - 1
+- goal:
+  - 11
+  - 52
+  name: boi45
+  start:
+  - 12
+  - 40
+- goal:
+  - 19
+  - 48
+  name: boi46
+  start:
+  - 11
+  - 56
+- goal:
+  - 5
+  - 47
+  name: boi47
+  start:
+  - 17
+  - 48
+- goal:
+  - 23
+  - 17
+  name: boi48
+  start:
+  - 12
+  - 60
+- goal:
+  - 18
+  - 41
+  name: boi49
+  start:
+  - 12
+  - 38

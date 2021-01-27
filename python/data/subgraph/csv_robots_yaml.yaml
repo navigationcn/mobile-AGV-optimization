@@ -1,0 +1,29 @@
+robots:
+- goal:
+  - 2
+  - 1
+  name: boi0
+  start:
+  - 0
+  - 3
+- goal:
+  - 6
+  - 3
+  name: boi1
+  start:
+  - 6
+  - 5
+- goal:
+  - 2
+  - 12
+  name: boi2
+  start:
+  - 4
+  - 12
+- goal:
+  - 4
+  - 12
+  name: boi3
+  start:
+  - 6
+  - 8
