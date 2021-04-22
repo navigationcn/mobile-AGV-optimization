@@ -20,10 +20,10 @@ def main():
 
 	# INPUTS:
 	separate_start_and_goal = False		# If true, goals only at 2's, starts at 1 in csv file
-	robot_count = 50					# number of robots to add to plan
+	robot_count = 20					# number of robots to add to plan
 	seedval = 0							#
 	pwd = os.path.dirname(os.path.abspath(__file__))
-	base_loc = pwd + "/nuernberg1"		#  auto_gen_00_large | auto_gen_01_nuernberg | auto_gen_02_simple
+	base_loc = pwd + "/gazebo"		#  auto_gen_00_large | auto_gen_01_nuernberg | auto_gen_02_simple
 	csv_map_file = base_loc + "/csv_map.csv"				# location of csv file of graph
 	yaml_map_file = base_loc + "/csv_map_yaml.yaml"
 	robot_yaml_file = base_loc + "/csv_robots_yaml.yaml"

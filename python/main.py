@@ -14,7 +14,7 @@ import subprocess
 sys.path.insert(1, "functions/")
 
 def main():
-    thread_number = 5
+    thread_number = 1
     # An automated script to run multiple scenarios
 
     # SIMULATION
@@ -34,12 +34,12 @@ def main():
     # map_name = "nuernberg"
     # for map_name in ["nuernberg", "islands", "general", "halfgen"]
 
-    for seedvaliter in [16,17,18,19,20]: #[6,7,8,9,10]: #[1,2,3,4,5]: #[16,17,18,19,20]: #[11,12,13,14,15]: #[6,7,8,9,10]: #[1,2,3,4,5]:
+    for seedvaliter in range(38,40): #[6,7,8,9,10]: #[1,2,3,4,5]: #[16,17,18,19,20]: #[11,12,13,14,15]: #[6,7,8,9,10]: #[1,2,3,4,5]:
             # 
-        seedval = seedvaliter + 20
-        for map_name in ["nuernberg", "halfgen", "islands", "nuernberg"]:
+        seedval = seedvaliter
+        for map_name in ["gazebo"]:
 
-            for robots in [50]: # number of AGVs
+            for robots in [20]: # number of AGVs
                 # Generate new map
                 subprocess.run(
                     ["python",

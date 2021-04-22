@@ -36,22 +36,22 @@ def main():
 
     if len(sys.argv) == 1: # if no additional arguments given
         # Simulation plotting and saving
-        show_visual = False
-        show_ADG = False
+        show_visual = True
+        show_ADG = True
         run_MILP = True
         save_file = False
         # Simulation parameters
         pwd = os.path.dirname(os.path.abspath(__file__))
-        map_gen_robot_count = 10
-        delayed_robot_cnt = 2
+        map_gen_robot_count = 20
+        delayed_robot_cnt = 4
         map_gen_seedval = 1
-        H_control = 4
+        H_control = 5
         delay_amount = 5
         thread_number = 1
         solver = "CBC" # or "GRB" for Gurobi
         sim_timeout = 500
         w = 4.0     # sub-optimality bound: w = 1.0 -> CBS, else ECBS!
-        fldr = "nuernberg1" # + str(thread_number)
+        fldr = "gazebo1" # + str(thread_number)
         save_file_location = "general"
         cost_func_name = "cumulative"
 
