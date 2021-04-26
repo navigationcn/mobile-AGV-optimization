@@ -24,11 +24,29 @@ cd build
 cmake ..
 make
 ```
-Look at the output when running *cmake* to ensure you have all the dependencies installed. If you need *doxygen*, simply run *apt-get install doxygen* and re-run cmake and make.
+Look at the output when running *cmake* to ensure you have all the dependencies installed. Known dependencies include:
+
+- *doxygen* 
+  ```
+  apt-get install doxygen
+  ```
+ 
+- *yaml-cpp*
+  ```
+  apt-get install libyaml-cpp-dev
+  ```
+  
+Check the output of *cmake* to verify all dependencies are installed, and then run *make*.
 
 3. Setup the python environment to run the SADG algorithms
+
+If you use conda, simply create a new conda environment 
 ```
-cd ~/mobile-AGV-optimization/python
+conda create --name sadg_env python=3.6
+conda activate sadg_env
+```
+Then install the python dependencies using *pip*
+```
 pip3 install -r requirements.txt
 ```
 
