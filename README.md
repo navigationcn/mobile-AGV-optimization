@@ -1,36 +1,40 @@
-# Statistical SADG Analysis
+# Mobile AGV Optimization
+
+Based on the paper [A Feedback Scheme to Reorder a Multi-Agent Execution Schedule by Persistently Optimizing a Switchable Action Dependency Graph](https://arxiv.org/abs/2010.05254)
+by A. Berndt, N. van Duijkeren, L. Palmieri and T. Keviczky
 
 ## Get Started
 
 Execute the following commands to compile and run this repo. 
 
-Assume your working directory is ~/
 
 1. Clone the repository
+
 ```
-cd ~
-git clone ssh://git@sourcecode.socialcoding.bosch.com:7999/~blr7rng/statistical_sadg_analysis.git
-cd ~/statistical_sadg_analysis
+cd ~/
+git clone https://github.com/alexberndt/mobile-AGV-optimization.git
+cd ~/mobile-AGV-optimization/
 ```
 
 2. Build and compile the ECBS MAPF planner
 ```
-cd ~/statistical_sadg_analysis
+cd ~/mobile-AGV-optimization/
 mkdir build
 cd build
 cmake ..
 make
 ```
+Look at the output when running *cmake* to ensure you have all the dependencies installed. If you need *doxygen*, simply run *apt-get install doxygen* and re-run cmake and make.
 
 3. Setup the python environment to run the SADG algorithms
 ```
-cd ~/statistical_sadg_analysis/python
+cd ~/mobile-AGV-optimization/python
 pip3 install -r requirements.txt
 ```
 
 ## Overview of python files
 
-### ./main_ECBS.py
+### python/main_ECBS.py
 
 This file runs the SADG algorithm. 
 
@@ -38,7 +42,7 @@ If run using *main.py*, the parameters used are in lines 60-78,
 If run standalone, the input parameters are lines 38-56.
 
 
-### ./main.py
+### python/main.py
 
 The main file setup to test various maps, AGV fleet sizes, solvers, horizon lengths, delays etc.
 
